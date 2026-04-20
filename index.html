@@ -9,35 +9,40 @@
 
 <style>
 body{
-    text-align:center;
+    margin:0;
     font-family:Arial;
-    background:#f2f2f2;
+    background:#111;
+    color:white;
+    text-align:center;
 }
 #reader{
     width:300px;
     margin:auto;
+    margin-top:30px;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Scan QR Code</h2>
+<h2>Scan QR to Connect</h2>
 
 <div id="reader"></div>
 
+<p>Point camera to QR code</p>
+
 <script>
 function onScanSuccess(decodedText) {
-    // dito pupunta after scan
+    // redirect agad sa QR content
     window.location.href = decodedText;
 }
 
-let scanner = new Html5QrcodeScanner("reader", {
-    fps: 10,
-    qrbox: 250
-});
+let html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader",
+    { fps: 10, qrbox: 250 }
+);
 
-scanner.render(onScanSuccess);
+html5QrcodeScanner.render(onScanSuccess);
 </script>
 
 </body>
