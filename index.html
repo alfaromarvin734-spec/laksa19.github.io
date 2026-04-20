@@ -3,45 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WiFi Voucher</title>
+<title>QR Scanner</title>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
 
 <style>
 body{
-    font-family: Arial;
     text-align:center;
+    font-family:Arial;
     background:#f2f2f2;
 }
-.voucher{
-    background:white;
-    width:200px;
-    margin:50px auto;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
-.qr{
-    width:120px;
-}
-.code{
-    font-size:18px;
-    font-weight:bold;
-    margin-top:10px;
+#reader{
+    width:300px;
+    margin:auto;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="voucher">
-    <h3>FREE WIFI</h3>
+<h2>Scan QR Code</h2>
 
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FREE123">
+<div id="reader"></div>
 
-    <div class="code">FREE123</div>
+<script>
+function onScanSuccess(decodedText) {
+    // dito pupunta after scan
+    window.location.href = decodedText;
+}
 
-    <p>Enjoy Internet!</p>
-</div>
+let scanner = new Html5QrcodeScanner("reader", {
+    fps: 10,
+    qrbox: 250
+});
+
+scanner.render(onScanSuccess);
+</script>
 
 </body>
 </html>
