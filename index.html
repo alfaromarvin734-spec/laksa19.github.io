@@ -1,9 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hotspot</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WiFi Voucher</title>
+
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    background:#f2f2f2;
+}
+.voucher{
+    background:white;
+    width:200px;
+    margin:50px auto;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+.qr{
+    width:120px;
+}
+.code{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:10px;
+}
+</style>
+
 </head>
+
 <body>
-    <h2>OK na ang GitHub Pages mo ✅</h2>
+
+<div class="voucher">
+    <h3>FREE WIFI</h3>
+
+    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=FREE123">
+
+    <div class="code">FREE123</div>
+
+    <p>Enjoy Internet!</p>
+</div>
+
 </body>
 </html>
